@@ -183,23 +183,20 @@ print(model.get_weights())
 print(183)
 
 model.save_weights('model_weights.weights.h5')
-weights = model.get_weights()
 
-# Запись весов в CSV файл
-df = pd.DataFrame(weights)
-df.to_csv('model_weights.csv', index=False)
+print("-------------------------------------------")
 
-# Загрузка весов из CSV файла
-df = pd.read_csv('model_weights.csv')
-weights = df.values.tolist()
+from tensorflow.keras.models import Sequential
 
-# Создание новой модели
+# Создайте модель
 model = Sequential()
-model.add(Dense(...)) # Добавьте слои как в вашей оригинальной модели
+# Добавьте слои к модели
 
-# Установка весов в новую модель
-model.set_weights(weights)
+# Загрузите веса из файла weights.h5
+model.load_weights('model_weights.weights.h5')
 
+print(model.get_weights())
+print("успешно")
 #
 # from itertools import *
 #
