@@ -6,17 +6,16 @@ from sklearn.preprocessing import StandardScaler
 
 test_size = 0.25
 
-def init():
-    global model
+def create_empty():
     model = Sequential()
-    model.add(Dense(32, input_dim=X.shape[1], activation='tanh'))
+    model.add(Dense(32, input_dim=5, activation='tanh'))
     model.add(Dense(32, activation='tanh'))
     model.add(Dense(32))
     model.add(Dense(1))
     model.compile(loss="mean_squared_error", metrics=["mae"])
 
 
-def learn(df_x: pd.DataFrame, Y: pd.DataFrame, var="y1"):
+def learn_model(model, df_x: pd.DataFrame, Y: pd.DataFrame, var="y1"):
     Y = Y.rename(columns={"Дата": "date", "Кол-во заказов": "y1", "Товарооборот": "y2"})
     Y['date'] = pd.to_datetime(Y['date']).dt.date
     X = df_x.join(Y.set_index('date'), on='date', how="inner")
@@ -34,6 +33,5 @@ def learn(df_x: pd.DataFrame, Y: pd.DataFrame, var="y1"):
     X_train, X_test, y_train, y_test = train_test_split(X, Ys, test_size=test_size, shuffle=False)
     history = model.fit(X_train, y_train, epochs = 80, validation_data=(X_test, y_test))
 
+    return model
 
-def predict():
-    ...
