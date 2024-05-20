@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-app = FastAPI()
+app = FastAPI(title="Беда & Baggins")
 
 from src.server.setup import router as learn
 from src.server.use import router as use

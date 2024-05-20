@@ -7,7 +7,8 @@ import src.globals as g
 from src.data.celendar import is_day_holiday
 
 router = APIRouter(
-    prefix="/use"
+    prefix="/use",
+    tags = ["Предсказания"]
 )
 
 @router.get("predict_one")

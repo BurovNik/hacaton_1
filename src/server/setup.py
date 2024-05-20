@@ -8,7 +8,8 @@ from src.model import create_empty, learn_model
 import src.globals as g
 
 router = APIRouter(
-    prefix='/setup'
+    prefix='/setup',
+    tags=["Настойка"]
 )
 
 @router.post("/learn")
