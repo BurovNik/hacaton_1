@@ -6,7 +6,9 @@ from src.data import parse
 from src.model import create_empty, learn_model
 import src.globals as g
 
-router = APIRouter()
+router = APIRouter(
+    prefix='/setup'
+)
 
 @router.post("/learn")
 def learn(
@@ -27,4 +29,9 @@ def learn(
     learn_model(model2, df_x, df_y, "y2")
     g.model1 = model1
     g.model2 = model2
+    return {"code": 200}
 
+
+def load():
+    g.model1.load_weights('data/model_weights.weights.h5')
+    return {"code": 200}
