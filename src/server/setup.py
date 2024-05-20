@@ -33,7 +33,8 @@ def learn(
     return {"code": 200}
 
 
+@router.post("/load")
 def load():
-    g.model1 = model.create_empty()
+    g.model1 = src.model.create_empty()
     g.model1.load_weights('data/model_weights.weights.h5')
     return {"code": 200}
