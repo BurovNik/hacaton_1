@@ -4,7 +4,7 @@ from keras.layers import Dense
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
-import globals as g
+import src.globals as g
 
 test_size = 0.25
 
