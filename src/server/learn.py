@@ -4,7 +4,7 @@ import pandas as pd
 
 from src.data import parse
 from src.model import create_empty, learn_model
-import globals as g
+import src.globals as g
 
 router = APIRouter(
     prefix="learn"
