@@ -40,7 +40,7 @@ class Input(BaseModel):
     humidity: float
 
 
-@router.get("predict_many")
+@router.post("predict_many")
 def predict_many(
     data: list[Input]
 ):
@@ -54,8 +54,7 @@ def predict_many(
     })
     result1 = g.model1.predict(df[:])
     result2 = g.model2.predict(df[:])
-    return {
-        "y1": result1,
-        "y2": result2
-    }
-
+    result = ""
+    for i in len(result1):
+        result += f"{result1[i][0]}\t{result2[i][0]}\n"
+    return result
