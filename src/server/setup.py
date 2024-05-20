@@ -40,6 +40,8 @@ def load():
     g.model2 = src.model.create_empty()
     g.model1.load_weights('data/model1_weights.weights.h5')
     g.model2.load_weights('data/model2_weights.weights.h5')
+    g.ss["y1"] = load('ssy1.bin')
+    g.ss["y2"] = load('ssy2.bin')
     return {"code": 200}
 
 @router.post("/save")

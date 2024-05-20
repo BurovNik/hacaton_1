@@ -3,6 +3,7 @@ from keras.models import Sequential, load_model
 from keras.layers import Dense
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
+from sklearn.externals.joblib import dump, load
 
 import src.globals as g
 
@@ -29,6 +30,7 @@ def learn_model(model, df_x: pd.DataFrame, Y: pd.DataFrame, var="y1"):
 
     g.ss[var] = StandardScaler()
     g.ss[var].fit(Y[:])
+    dump(g.ss[var], f'ss{var}.bin', compress=True)
     Ys = Y.copy()
     Ys[:] = g.ss[var].transform(Y[:])
 
