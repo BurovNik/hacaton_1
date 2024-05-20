@@ -26,12 +26,9 @@ def predict_one(
     })
     result1 = g.model1.predict(df[:])
     result2 = g.model2.predict(df[:])
-    print(result1, result2)
-    return {
-        "code": 200,
-        "content": [result1, result2]
-    }
-
+    result1 = str(result1[0][0])
+    result2 = str(result2[0][0])
+    return f"{result1} {result2}"
 
 
 class Input(BaseModel):
