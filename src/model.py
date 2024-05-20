@@ -37,6 +37,7 @@ def learn_model(model, df_x: pd.DataFrame, Y: pd.DataFrame, var="y1"):
 
 
     X_train, X_test, y_train, y_test = train_test_split(X, Ys, test_size=test_size, shuffle=False)
+    g.data = (X_train, X_test, y_train, y_test)
     history = model.fit(X_train, y_train, epochs = 80, validation_data=(X_test, y_test))
 
     return model
