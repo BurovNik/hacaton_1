@@ -27,10 +27,10 @@ def learn_model(model, df_x: pd.DataFrame, Y: pd.DataFrame, var="y1"):
     X = df[["Holiday", "Sun", "Sat", "U", "Mon"]]
     Y = df[[var]]
 
-    g.ss = StandardScaler()
-    g.ss.fit(Y[:])
+    g.ss[var] = StandardScaler()
+    g.ss[var].fit(Y[:])
     Ys = Y.copy()
-    Ys[:] = g.ss.transform(Y[:])
+    Ys[:] = g.ss[var].transform(Y[:])
 
 
 

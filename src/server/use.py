@@ -26,6 +26,10 @@ def predict_one(
     })
     result1 = g.model1.predict(df[:])
     result2 = g.model2.predict(df[:])
+
+    result1[:] = g.ss["y1"].inverse_transform(result1[:])
+    result2[:] = g.ss["y2"].inverse_transform(result2[:])
+
     result1 = str(result1[0][0])
     result2 = str(result2[0][0])
     return f"{result1} {result2}"
