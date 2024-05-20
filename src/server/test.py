@@ -2,7 +2,7 @@ from fastapi.routing import APIRouter
 import matplotlib.pyplot as plt
 from starlette.responses import FileResponse
 
-import globals as g
+import src.globals as g
 
 router = APIRouter(
 
