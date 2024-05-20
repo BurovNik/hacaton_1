@@ -3,7 +3,7 @@ from keras.models import Sequential, load_model
 from keras.layers import Dense
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
-from sklearn.externals.joblib import dump, load
+from joblib import dump, load
 
 import src.globals as g
 
