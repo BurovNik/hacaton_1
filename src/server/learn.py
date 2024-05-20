@@ -6,11 +6,9 @@ from src.data import parse
 from src.model import create_empty, learn_model
 import src.globals as g
 
-router = APIRouter(
-    prefix="/learn"
-)
+router = APIRouter()
 
-router.post("/learn")
+@router.post("/learn")
 def learn(
     weather: UploadFile,
     target: UploadFile,
