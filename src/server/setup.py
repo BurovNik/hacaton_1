@@ -2,7 +2,7 @@ from fastapi import UploadFile
 from fastapi.routing import APIRouter
 import pandas as pd
 
-import model
+import src.model
 from src.data import parse
 from src.model import create_empty, learn_model
 import src.globals as g
