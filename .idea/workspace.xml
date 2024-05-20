@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8808e740-8bde-4f46-a080-9a4f5a1b16df" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/data/Архив погоды.xls" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Данные кофеен.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/learn.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/learn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/globals.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/globals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +122,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1716194807108</updated>
-      <workItem from="1716194809765" duration="7937000" />
+      <workItem from="1716194809765" duration="8271000" />
     </task>
     <servers />
   </component>

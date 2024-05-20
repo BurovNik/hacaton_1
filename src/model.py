@@ -4,6 +4,8 @@ from keras.layers import Dense
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
+import globals as g
+
 test_size = 0.25
 
 def create_empty():
@@ -18,17 +20,18 @@ def create_empty():
 def learn_model(model, df_x: pd.DataFrame, Y: pd.DataFrame, var="y1"):
     Y = Y.rename(columns={"Дата": "date", "Кол-во заказов": "y1", "Товарооборот": "y2"})
     Y['date'] = pd.to_datetime(Y['date']).dt.date
-    X = df_x.join(Y.set_index('date'), on='date', how="inner")
+    df = df_x.join(Y.set_index('date'), on='date', how="inner")
 
-    X = X.dropna()
-    X.info()
-    X = X[["Holiday", "Sun", "Sat", "U", "Mon"]]
-    Y = Y[[var]]
+    df = df.dropna()
+    X = df[["Holiday", "Sun", "Sat", "U", "Mon"]]
+    Y = df[[var]]
 
-    ss = StandardScaler()
-    ss.fit(Y[:])
+    g.ss = StandardScaler()
+    g.ss.fit(Y[:])
     Ys = Y.copy()
-    Ys[:] = ss.transform(Y[:])
+    Ys[:] = g.ss.transform(Y[:])
+
+
 
     X_train, X_test, y_train, y_test = train_test_split(X, Ys, test_size=test_size, shuffle=False)
     history = model.fit(X_train, y_train, epochs = 80, validation_data=(X_test, y_test))
