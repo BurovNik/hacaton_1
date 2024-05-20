@@ -22,7 +22,7 @@ def learn(
     df_x = parse(df_x)
     df_y = pd.read_excel(f"data/{target.filename}")
 
-    df = parse(df_x)
+    df_x = parse(df_x)
     model1, model2 = create_empty(), create_empty()
     learn_model(model1, df_x, df_y, "y1")
     learn_model(model2, df_x, df_y, "y2")
