@@ -15,6 +15,7 @@ def create_empty():
     model.add(Dense(32))
     model.add(Dense(1))
     model.compile(loss="mean_squared_error", metrics=["mae"])
+    return model
 
 
 def learn_model(model, df_x: pd.DataFrame, Y: pd.DataFrame, var="y1"):
