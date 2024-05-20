@@ -7,7 +7,7 @@ from src.model import create_empty, learn_model
 import src.globals as g
 
 router = APIRouter(
-    prefix="learn"
+    prefix="/learn"
 )
 
 router.post("/learn")
