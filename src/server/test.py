@@ -9,7 +9,7 @@ router = APIRouter(
 )
 
 
-@router.get("metrix")
+@router.post("metrix")
 def metrix():
     X_train, X_test, y_train, y_test = g.data
     y_pred = y_test.copy()
