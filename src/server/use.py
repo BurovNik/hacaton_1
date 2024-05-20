@@ -56,5 +56,5 @@ def predict_many(
     result2 = g.model2.predict(df[:])
     result = ""
     for i in len(result1):
-        result += f"{result1[i][0]}\t{result2[i][0]}\n"
+        result += f"{result1[i]}\t{result2[i]}\n"
     return result
