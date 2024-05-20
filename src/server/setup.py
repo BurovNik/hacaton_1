@@ -37,5 +37,13 @@ def learn(
 @router.post("/load")
 def load():
     g.model1 = src.model.create_empty()
-    g.model1.load_weights('data/model_weights.weights.h5')
+    g.model2 = src.model.create_empty()
+    g.model1.load_weights('data/model1_weights.weights.h5')
+    g.model2.load_weights('data/model2_weights.weights.h5')
+    return {"code": 200}
+
+@router.post("/save")
+def save():
+    g.model1.save_weights('data/model1_weights.weights.h5')
+    g.model2.save_weights('data/model2_weights.weights.h5')
     return {"code": 200}
