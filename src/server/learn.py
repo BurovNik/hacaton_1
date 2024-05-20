@@ -19,6 +19,7 @@ def learn(
         buffer.write(target.file.read())
 
     df_x = pd.read_excel(f"data/{weather.filename}")
+    df_x = parse(df_x)
     df_y = pd.read_excel(f"data/{target.filename}")
 
     df = parse(df_x)
