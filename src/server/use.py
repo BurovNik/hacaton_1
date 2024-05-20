@@ -54,6 +54,8 @@ def predict_many(
     })
     result1 = g.model1.predict(df[:])
     result2 = g.model2.predict(df[:])
+    result1[:] = g.ss["y1"].inverse_transform(result1[:])
+    result2[:] = g.ss["y2"].inverse_transform(result2[:])
     result = ""
     for i in range(len(result1)):
         result += f"{result1[i][0]}\t{result2[i][0]}\n"
