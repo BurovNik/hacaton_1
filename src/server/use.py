@@ -17,11 +17,11 @@ def predict_one(
 ):
     # ["Holiday", "Sun", "Sat", "U", "Mon"
     df = pd.DataFrame(data={
-        "Holiday": is_day_holiday(date),
-        "Sun": date.weekday() == 6,
-        "Sat": date.weekday() == 5,
-        "U": humidity,
-        "Mon": date.weekday() == 0
+        "Holiday": [is_day_holiday(date)],
+        "Sun": [date.weekday() == 6],
+        "Sat": [date.weekday() == 5],
+        "U": [humidity],
+        "Mon": [date.weekday() == 0]
     })
     result1 = g.model1.predict(df[:])
     result2 = g.model2.predict(df[:])
